@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["img/app-icon-144.svg","698631a7c7408857af9b247e14d2e2b6"],["img/favicon.ico","6c1c195a3d90afaf00c05e523c3a9cc6"],["js/app.js","3aaaaa22f998ed910d6ac352fa4935b2"],["offline.html","cc566f6df91eb1008451f1b0adef3853"],["shell.html","287e43878990f2ae573885dd24a18df9"]];
+var precacheConfig = [["img/app-icon-144.svg","698631a7c7408857af9b247e14d2e2b6"],["img/favicon.ico","6c1c195a3d90afaf00c05e523c3a9cc6"],["offline.html","cc566f6df91eb1008451f1b0adef3853"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -290,7 +290,12 @@ toolbox.router.get("*", (request, values, options) => {
         return toolbox.cacheFirst(request, values, options);
       }
 
-      return caches.match('/shell.html', {ignoreSearch: true}); 
+      // If it's a request for content, use the networkFirst
+      // strategy, and send an offline page if both network and
+      // cache fail.
+      return toolbox.networkFirst(request, values, options).catch(() => {
+        return caches.match('/offline.html', {ignoreSearch: true});
+      });      
     }, {});
 toolbox.router.get(/cdn\.ampproject\.org/, toolbox.fastest, {});
 
