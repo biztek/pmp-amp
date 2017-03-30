@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["img/app-icon-144.svg","698631a7c7408857af9b247e14d2e2b6"],["img/favicon.ico","6c1c195a3d90afaf00c05e523c3a9cc6"],["img/pills-1200x1800.jpg","3865c42938447f4e6ca4634ba4816366"],["img/pills-600x900.jpg","3d0ae60bef1ca22632a40dc64a8cc9e0"],["offline.html","cc566f6df91eb1008451f1b0adef3853"]];
+var precacheConfig = [["img/app-icon-144.svg","698631a7c7408857af9b247e14d2e2b6"],["img/favicon.ico","6c1c195a3d90afaf00c05e523c3a9cc6"],["img/pills-1200x1800.jpg","3865c42938447f4e6ca4634ba4816366"],["img/pills-600x900.jpg","3d0ae60bef1ca22632a40dc64a8cc9e0"],["img/pmp-600x60.jpg","884239142ac3ba342aa883a89e77619e"],["offline.html","cc566f6df91eb1008451f1b0adef3853"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
