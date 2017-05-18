@@ -6,7 +6,8 @@
       "*.md",
       ".*",
       "**/.*",
-      "deploy.sh"
+      "README.md",
+      "scripts"
     ],
     "rewrites": [
       {
