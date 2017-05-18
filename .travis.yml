@@ -1,0 +1,34 @@
+language: node_js
+
+dist: trusty
+
+sudo: false
+
+addons:
+  firefox: latest
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+
+git:
+  depth: 3
+
+node_js:
+  - '6'
+
+before_script:
+- npm install -g amphtml-validator sw-precache firebase-tools
+- ./scripts/build.sh
+
+script:
+- ./scripts/run-tests.sh
+
+after_success:
+  - ./scripts/deploy.sh
+
+cache:
+  directories:
+  - node_modules
+  - $HOME/.nvm
